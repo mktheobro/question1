@@ -6,6 +6,7 @@ class CreateContents < ActiveRecord::Migration[6.0]
       t.integer     :page,       null: false
       t.integer     :difficult,  null: false
       t.string      :subject,    null: false
+      t.integer     :original,   null: false
       t.timestamps
     end
   end
