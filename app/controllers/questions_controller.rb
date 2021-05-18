@@ -8,8 +8,8 @@ class QuestionsController < ApplicationController
   end
 
   def search
-    @results = @p.result.to_sql
-    @results2 = @p.result.to_sql
+    @results = @p.result
+    @results2 = @p.result
   end
 
   private

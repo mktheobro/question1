@@ -1,0 +1,13 @@
+.master_result{
+  /* display: flex; */
+}
+.id_result{
+  /* background-color: #2FF5F5; */
+  display:block;
+}
+.rand_result{
+  /* background-color: #30FFC4; */
+  /* position:absolute; */
+  display:none;
+}
+

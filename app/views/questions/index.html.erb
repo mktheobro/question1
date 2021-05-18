@@ -1,2 +1,32 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+<h1>
+  商品検索
+</h1>
+<%= search_form_for @p, url: questions_search_path do |f| %>
+  <%= f.label :question_cont, '問題文検索' %>
+  <%= f.search_field :question_cont, class:"items-search-text", placeholder:"問題文に含まれている文字を検索" %> 
+  <br>
+  <%= f.label :answer_cont, '解答検索' %>
+  <%= f.search_field :answer_cont, class:"items-search-text", placeholder:"解答に含まれている文字を検索" %> 
+  <br>
+  <%= f.label :subject_eq, '科目：' %> 
+  <%= f.collection_select :subject_eq, @product_subject, :subject, :subject, include_blank: '指定なし'%>
+  <br>
+  <%= f.label :page, 'ページ：' %>
+  <%= f.number_field :page_gteq %>から
+  <%= f.number_field :page_lt %>まで
+  <br>
+  
+  <%= f.submit '検索' %>
+   <br>
+  <%# 商品一覧 %>
+  <% @products.each do |product| %>
+  <td>
+  <br>
+  <li>
+    <%= product.question %>
+    <%= product.answer %>
+    <%= product.page %>
+    <%= product.subject %>
+  </li>
+  <% end %>
+<% end %>

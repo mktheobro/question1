@@ -1,0 +1,45 @@
+<h1>
+  検索結果
+</h1>
+<input name= "result", type= "hidden", value: @results, class='result' > 
+<div>
+<%= link_to "ランダムに並び替え",root_path,id:"shuffle_que" %>
+<%= link_to "id順を表示",root_path,id:"id_que" %>
+</div >
+<%# ランダム順 %>
+<% if @results.length !=0 %>
+  <div class = 'master_result', id = "master_result">
+    <% @results = @results.shuffle %> 
+    <div class = 'id_result', id = 'id_result'>
+      <% @results.each do |result| %>
+        <td>
+        <br>
+        <li>
+          <%= result.question %>
+          <%= result.answer %>
+          <%= result.page %>
+          <%= result.difficult %>
+          <%= result.subject %>
+        </li>
+      <% end %>
+    </div>
+  <%# id順 %>
+    <div class = 'rand_result', id = 'rand-result'>
+ 
+      <% @results2.each do |result| %>
+        <td>
+        <br>
+        <li>
+          <%= result.question %>
+          <%= result.answer %>
+          <%= result.page %>
+          <%= result.difficult %>
+          <%= result.subject %>
+        </li>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  該当する商品はありません
+<% end %>
+<%= link_to 'トップページへ戻る', root_path %>
