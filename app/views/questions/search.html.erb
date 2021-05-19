@@ -8,22 +8,25 @@
 </div >
 <%# ランダム順 %>
 <% if @results.length !=0 %>
-  <div class = 'master_result', id = "master_result">
-    <% @results = @results.shuffle %> 
-    <div class = 'id_result', id = 'id_result'>
-      <% @results.each do |result| %>
-        <td>
-        <br>
-        <li>
-          <%= result.question %>
-          <%= result.answer %>
-          <%= result.page %>
-          <%= result.difficult %>
-          <%= result.subject %>
-        </li>
-      <% end %>
-    </div>
+  <table class="detail-table">
+    <div class = 'master_result', id = "master_result">
+      <tr><th>ページ数</th><th>問題</th><th>解答</th></tr>
+      <% @results = @results.shuffle %> 
+      <div class = 'id_result', id = 'id_result'>
+        <% @results.each do |result| %>
+          <td>
+            <tr>
+              <th class="detail-page"><%= result.page %></th>
+              <th class="detail-question"><%= result.question %></th>
+              <th class="detail-answer", id = 'id_answer'><%= result.answer %></th>
+            </tr>
+            <%# <%= result.difficult %>
+            <%# <%= result.subject %>
+        <% end %>
+      </div>
+    </table>
   <%# id順 %>
+  
     <div class = 'rand_result', id = 'rand-result'>
  
       <% @results2.each do |result| %>
